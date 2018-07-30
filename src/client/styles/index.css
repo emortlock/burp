@@ -1,0 +1,19 @@
+/**
+ * Tailwind's base styles, which is a combination of Normalize.css and some additional base styles.
+ */
+@import 'tailwindcss/preflight';
+
+/**
+ * Component classes registered by plugins.
+ */
+@import 'tailwindcss/components';
+
+/**
+ * Custom component classes
+ * - loaded *before* the utilities so that the utilities could still override them.
+ */
+
+/**
+ * Tailwind's utility classes, generated based on your config file.
+ */
+@import 'tailwindcss/utilities';

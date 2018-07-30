@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders matching snapshot 1`] = `
+<Header
+  logo={
+    <Link
+      replace={false}
+      to="/"
+    >
+      <Sainsburys
+        className="c-logo"
+        height="30"
+        role="img"
+        viewBox="0 0 204 40"
+        width="114"
+      />
+    </Link>
+  }
+  menuItems={
+    Array [
+      <NavLink
+        activeClassName="is-active"
+        aria-current="page"
+        to="/about"
+      >
+        About
+      </NavLink>,
+    ]
+  }
+/>
+`;
