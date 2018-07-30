@@ -8,7 +8,7 @@
     "export": "npm run build && cross-env NODE_ENV=production next export dist",
     "start": "npm run build && cross-env NODE_ENV=production node ./src/server",
     "start:dev": "cross-env NODE_ENV=development node ./src/server",
-    "test": "cross-env BABEL_ENV=cjs jest --coverage",
+    "test": "cross-env LOGGER_ENABLED=false BABEL_ENV=test jest",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "lint:fix": "npm run lint -- --fix"
   },
@@ -32,13 +32,16 @@
     },
     "resetModules": true,
     "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/__mocks__/",
-      "/__setup__/"
+      "<rootDir>/.next/",
+      "<rootDir>/node_modules/"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ]
+    ],
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   },
   "prettier": {
     "semi": false,
@@ -70,12 +73,9 @@
     "tailwindcss": "^0.6.4"
   },
   "devDependencies": {
-    "@babel/core": "7.0.0-beta.42",
-    "@babel/plugin-transform-modules-commonjs": "7.0.0-beta.42",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.6",
     "babel-jest": "^23.4.2",
-    "babel-plugin-dynamic-import-node": "^2.0.0",
     "cross-env": "^5.0.1",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
@@ -90,7 +90,6 @@
     "eslint-plugin-react": "^7.10.0",
     "jest": "^23.4.1",
     "json-loader": "^0.5.7",
-    "node-sass": "^4.9.2",
     "prettier": "^1.13.7"
   },
   "author": "Ed Mortlock",

@@ -4,10 +4,12 @@ import { shallow } from 'enzyme'
 import Footer from '..'
 
 const setup = (testProps = {}) => {
-  const props = {
-    text: 'Some text',
-    ...testProps,
-  }
+  const props = Object.assign(
+    {
+      text: 'Some text',
+    },
+    testProps,
+  )
 
   const wrapper = shallow(<Footer {...props} />)
 

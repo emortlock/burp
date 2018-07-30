@@ -1,7 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer renders matching snapshot 1`] = `
-<Footer>
-  © Luna
-</Footer>
+<footer
+  className="bg-teal-darker text-white"
+>
+  <Container
+    alignLeft={false}
+    className="pt-8 px-4 pb-16"
+  >
+    Next Boiler Plate
+  </Container>
+</footer>
 `;
