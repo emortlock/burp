@@ -1,7 +1,8 @@
 import App, { Container } from 'next/app'
 import React from 'react'
-
 import getConfig from 'next/config'
+
+import log from '../../utils/log'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -21,10 +22,14 @@ export default class MyApp extends App {
       navigator.serviceWorker
         .register('/service-worker.js')
         .then(() => {
-          console.log('service worker registration successful')
+          if (publicRuntimeConfig.showLogs) {
+            log.info('service worker registration successful')
+          }
         })
         .catch(err => {
-          console.warn('service worker registration failed', err.message)
+          if (publicRuntimeConfig.showLogs) {
+            log.warn('service worker registration failed', err.message)
+          }
         })
     }
   }

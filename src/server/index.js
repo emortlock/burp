@@ -4,6 +4,7 @@ const next = require('next')
 const mime = require('mime-types')
 
 const config = require('./config')
+const log = require('./log')
 
 const app = next({ dev: config.isDev })
 const handle = app.getRequestHandler()
@@ -31,6 +32,6 @@ app.prepare().then(() => {
 
   server.listen(config.server.port, err => {
     if (err) throw err
-    console.log(`> Ready on http://localhost:${config.server.port}`)
+    log.info(`> Ready on http://localhost:${config.server.port}`)
   })
 })

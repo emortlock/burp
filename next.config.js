@@ -11,11 +11,18 @@ module.exports = withCSS({
 
     newConfig.entry = addPolyfills(config)
 
+    const node = !meta.isServer
+      ? {
+          node: { fs: 'empty' },
+        }
+      : {}
+
     return Object.assign(
       {},
       config,
       addPolyfills(config, meta),
       plugins(config, meta),
+      node,
     )
   },
 })
