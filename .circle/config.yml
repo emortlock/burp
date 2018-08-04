@@ -4,13 +4,14 @@
 #
 version: 2
 
-defaults:
+defaults: &defaults
   working_directory: ~/next-boilerplate
   docker:
     - image: circleci/node:stretch
 
 jobs:
   build:
+    <<: *defaults
     steps:
       - checkout
 
@@ -28,26 +29,18 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package-lock.json" }}
 
-      # lint
-      - run:
-        name: Lint
-        command: npm run lint
-      # tests
-      - run:
-        name: Test
-        command: npm test
-      # build
-      - run:
-        name: Build
-        command: npm run build
+      - run: npm run lint
+
+      - run: npm test
+
+      - run: npm run build
 
   deploy:
+    <<: *defaults
     steps:
       - checkout
-      - run:
-        name: Deploy
-        command: |
-          git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+
+      - run: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
 
 workflows:
   version: 2
