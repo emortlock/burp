@@ -69,6 +69,8 @@ jobs:
   greenkeeperSetup:
     <<: *defaults
     steps:
+      - checkout
+
       - run: sudo npm install -g greenkeeper-lockfile
 
       - run: greenkeeper-lockfile-update
@@ -81,6 +83,8 @@ jobs:
   greenkeeperUpdate:
     <<: *defaults
     steps:
+      - checkout
+
       - attach_workspace:
           at: ./
 
