@@ -93,9 +93,9 @@ jobs:
             if ! git diff-index --quiet HEAD --; then
               git add package-lock.json &&
               git commit -m "Updated lockfile to match Greenkeeper changes" &&
-              export URL=$(echo $CIRCLE_REPOSITORY_URL | cut -c 4-) &&
-              git remote add gk-origin https://${GH_TOKEN}:x-oauth-basic${URL}:443 &&
-              git push gk-origin HEAD:$CIRCLE_BRANCH
+              export URL=$(echo $CIRCLE_REPOSITORY_URL | cut -c 4- | tr : /) &&
+              git remote add gk-origin https://${GH_TOKEN}${URL} &&
+              git push gk-origin HEAD:$CIRCLE_BRANCH --quiet
             fi
 
 workflows:
