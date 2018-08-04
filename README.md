@@ -1,5 +1,7 @@
 # Next.js Boilerplate
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/emortlock/nextjs-boilerplate.svg)](https://greenkeeper.io/)
+
 Opinionated starter kit for building a project that makes use of Next.js.
 
 Aims to align as closely as possible to the [Lighthouse](https://developers.google.com/web/tools/lighthouse/) recommendations.
