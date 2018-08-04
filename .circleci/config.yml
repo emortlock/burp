@@ -91,7 +91,7 @@ jobs:
         name: Commit lockfile
         command: |
           git add package-lock.json &&
-          git commit -m "Updated lockfile to match Greenkeeper changes"
+          git commit -m "Updated lockfile to match Greenkeeper changes" &&
           git push $CIRCLE_REPOSITORY_URL $CIRCLE_BRANCH
 
 workflows:
