@@ -26,17 +26,7 @@ if (config.logger.enabled) {
   )
 }
 
-const colors = {
-  trace: 'white',
-  debug: 'green',
-  info: 'blue',
-  warn: 'yellow',
-  crit: 'red',
-  fatal: 'red',
-}
-
-const logger = new winston.Logger({
-  colors,
+const log = winston.createLogger({
   level: config.logger.level,
   levels: {
     fatal: 0,
@@ -49,6 +39,4 @@ const logger = new winston.Logger({
   transports,
 })
 
-winston.addColors(colors)
-
-module.exports = logger
+module.exports = log
