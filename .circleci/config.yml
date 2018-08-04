@@ -66,12 +66,47 @@ jobs:
           name: Deploy to Heroku
           command: git push --force https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
 
+  greenkeeperSetup:
+    <<: *defaults
+    steps:
+      - run: npm install -g greenkeeper-lockfile
+
+      - run: greenkeeper-lockfile-update
+
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - .git
+
+  greenkeeperUpdate:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ./
+
+      - run:
+          name: SSH Avoid hosts unknown
+          command: 'mkdir -p ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config'
+
+      - run: greenkeeper-lockfile-upload
+
 workflows:
   version: 2
 
   build-and-deploy:
     jobs:
+      - greenkeeperSetup:
+          filters:
+            branches:
+              only: /^greenkeeper\/.*/
       - build
+      - greenkeeperUpdate:
+          requires:
+            - greenkeeperSetup
+            - build
+          filters:
+            branches:
+              only: /^greenkeeper\/.*/
       - deploy:
           requires:
             - build
