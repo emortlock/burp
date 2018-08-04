@@ -56,7 +56,11 @@ jobs:
 
       - run:
           name: Force commit build dir
-          command: git add --force ./.next && git commit -m "$CIRCLE_BUILD_NUM release"
+          command: |
+            git config user.email "$GIT_EMAIL" &&
+            git config user.name "$GIT_USERNAME" &&
+            git add --force ./.next &&
+            git commit -m "$CIRCLE_BUILD_NUM release"
 
       - run:
           name: Deploy to Heroku
