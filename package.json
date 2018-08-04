@@ -5,8 +5,8 @@
   "main": "./dist",
   "scripts": {
     "build": "cross-env NODE_ENV=production next build",
-    "export": "npm run build && cross-env NODE_ENV=production next export dist",
-    "start": "npm run build && cross-env NODE_ENV=production node ./src/server",
+    "export": "cross-env NODE_ENV=production next export dist",
+    "start": "cross-env NODE_ENV=production node ./src/server",
     "start:dev": "cross-env NODE_ENV=development node ./src/server",
     "test": "cross-env LOGGER_ENABLED=false BABEL_ENV=test jest",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
@@ -96,6 +96,7 @@
     "eslint-plugin-react": "^7.10.0",
     "jest": "^23.4.1",
     "json-loader": "^0.5.7",
+    "mkdirp": "^0.5.1",
     "prettier": "^1.13.7"
   },
   "author": "Ed Mortlock",
