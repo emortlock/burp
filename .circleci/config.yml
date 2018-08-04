@@ -88,11 +88,13 @@ jobs:
       - <<: *setupGit
 
       - run:
-          name: Commit lockfile
+          name: Commit lockfile if changed
           command: |
-            git add package-lock.json &&
-            git commit -m "Updated lockfile to match Greenkeeper changes" &&
-            git push $CIRCLE_REPOSITORY_URL $CIRCLE_BRANCH
+            if ! git diff-index --quiet HEAD --; then
+              git add package-lock.json &&
+              git commit -m "Updated lockfile to match Greenkeeper changes" &&
+              git push $CIRCLE_REPOSITORY_URL $CIRCLE_BRANCH
+            fi
 
 workflows:
   version: 2
