@@ -2,6 +2,10 @@
   "name": "nextjs-boilerplate",
   "version": "1.0.0",
   "description": "Starter kit for a next.js app.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emortlock/nextjs-boilerplate.git"
+  },
   "main": "./dist",
   "scripts": {
     "build": "cross-env NODE_ENV=production next build",
