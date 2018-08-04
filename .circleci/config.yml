@@ -41,10 +41,17 @@ jobs:
           name: Run build
           command: npm run build
 
+      - persist_to_workspace:
+          paths:
+            - .next
+
   deploy:
     <<: *defaults
     steps:
       - checkout
+
+      - attach_workspace:
+          at: .next
 
       - run:
           name: Force commit build dir
