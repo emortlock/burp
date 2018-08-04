@@ -1,0 +1,26 @@
+{
+  "short_name": "Boilerplate",
+  "name": "Next.js Boilerplate",
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#fff",
+  "theme_color": "#4dc0b5",
+  "display": "minimal-ui",
+  "icons": [
+    {
+      "src": "/static/images/icon-low.png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "/static/images/icon-mid.ico",
+      "sizes": "96x96 192x192"
+    },
+    {
+      "src": "/static/images/icon-hi.ico",
+      "sizes": "128x128 256x256 512x512"
+    },
+    {
+      "src": "/static/images/icon-hi.svg",
+      "sizes": "72x72"
+    }
+  ]
+}
