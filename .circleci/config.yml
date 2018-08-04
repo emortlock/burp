@@ -52,7 +52,7 @@ jobs:
       - checkout
 
       - attach_workspace:
-          at: .next
+          at: ./
 
       - run:
           name: Force commit build dir
