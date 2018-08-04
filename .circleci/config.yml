@@ -7,6 +7,11 @@ defaults: &defaults
   docker:
     - image: circleci/node:stretch
 
+setupGit: &setupGit
+  run: |
+    git config user.email "$GIT_EMAIL" &&
+    git config user.name "$GIT_USERNAME" &&
+
 jobs:
   build:
     <<: *defaults
@@ -16,7 +21,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package-lock.json" }}
+          - v1-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
@@ -27,7 +32,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
           name: Lint code
@@ -54,11 +59,11 @@ jobs:
       - attach_workspace:
           at: ./
 
+      - <<: *setupGit
+
       - run:
           name: Force commit build dir
           command: |
-            git config user.email "$GIT_EMAIL" &&
-            git config user.name "$GIT_USERNAME" &&
             git add --force ./.next &&
             git commit -m "#$CIRCLE_BUILD_NUM release"
 
@@ -66,48 +71,36 @@ jobs:
           name: Deploy to Heroku
           command: git push --force https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
 
-  greenkeeperSetup:
+  greenkeeperUpdateLockFile:
     <<: *defaults
     steps:
       - checkout
 
-      - run: sudo npm install -g greenkeeper-lockfile
-
-      - run: greenkeeper-lockfile-update
-
-      - persist_to_workspace:
-          root: ./
-          paths:
-            - .git
-
-  greenkeeperUpdate:
-    <<: *defaults
-    steps:
-      - checkout
-
-      - attach_workspace:
-          at: ./
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
 
       - run:
-          name: SSH Avoid hosts unknown
-          command: 'mkdir -p ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config'
+          name: Update package-lock.json
+          command: npm install
 
-      - run: greenkeeper-lockfile-upload
+      - <<: *setupGit
+
+      - run:
+        name: Commit lockfile
+        command: |
+          git add package-lock.json &&
+          git commit -m "Updated lockfile to match Greenkeeper changes"
+          git push $CIRCLE_REPOSITORY_URL $CIRCLE_BRANCH
 
 workflows:
   version: 2
 
   build-and-deploy:
     jobs:
-      - greenkeeperSetup:
-          filters:
-            branches:
-              only: /^greenkeeper\/.*/
       - build
-      - greenkeeperUpdate:
-          requires:
-            - greenkeeperSetup
-            - build
+      - greenkeeperUpdateLockFile:
           filters:
             branches:
               only: /^greenkeeper\/.*/
