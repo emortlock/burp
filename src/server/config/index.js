@@ -32,7 +32,7 @@ const config = {
     level: envVars.LOGGER_LEVEL,
   },
   server: {
-    port: envVars.PORT || isDev ? 3000 : 8080,
+    port: envVars.PORT || (isDev ? 3000 : 8080),
   },
 }
 
