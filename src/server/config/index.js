@@ -6,7 +6,7 @@ const envVarsSchema = joi
       .string()
       .allow(['development', 'production'])
       .default('production'),
-    PORT: joi.number().default(8080),
+    PORT: joi.number(),
     LOGGER_ENABLED: joi.boolean().default(true),
     LOGGER_LEVEL: joi
       .string()
@@ -22,15 +22,17 @@ if (error) {
   throw new Error(`Config validation error: ${error.message}`)
 }
 
+const isDev = envVars.NODE_ENV === 'development'
+
 const config = {
   env: envVars.NODE_ENV,
-  isDev: envVars.NODE_ENV === 'development',
+  isDev,
   logger: {
     enabled: envVars.LOGGER_ENABLED,
     level: envVars.LOGGER_LEVEL,
   },
   server: {
-    port: envVars.PORT,
+    port: envVars.PORT || isDev ? 3000 : 8080,
   },
 }
 
