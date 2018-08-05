@@ -5,7 +5,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/emortlock/burp.svg)](https://greenkeeper.io/)
 
-Opinionated starter kit for building a React PWA that can be run on a Node server using [Express](https://github.com/expressjs/express) and [Next.js](https://github.com/zeit/next.js/) or as a static site by making use of Next.js [export function](https://github.com/zeit/next.js/#static-html-export).
+Opinionated starter kit for building a React PWA that can be run on a Node server using [Express](https://github.com/expressjs/express) and [Next.js](https://github.com/zeit/next.js/) or as a static site by making use of the Next.js [export function](https://github.com/zeit/next.js/#static-html-export).
 
 Aims to align as closely as possible to the [Lighthouse](https://developers.google.com/web/tools/lighthouse/) recommendations.
 
