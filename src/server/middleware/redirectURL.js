@@ -44,6 +44,15 @@ module.exports = userOptions => (req, res, next) => {
     host = host.replace(/^www\./i, '')
   }
 
+  if (useHTTPS && options.hsts && options.hsts.enabled) {
+    res.setHeader(
+      'Strict-Transport-Security',
+      `max-age=${Math.round(options.hsts.maxAge)}${
+        options.hsts.subDomains ? '; includeSubDomains' : ''
+      }${options.hsts.preload ? '; preload' : ''}`,
+    )
+  }
+
   if (
     originalProtocol !== protocol ||
     originalHost !== host ||
@@ -55,7 +64,7 @@ module.exports = userOptions => (req, res, next) => {
       pathname,
     })
 
-    log.debug(
+    log.info(
       `Redirecting from ${url.format({
         protocol: originalProtocol,
         host: originalHost,
@@ -64,15 +73,6 @@ module.exports = userOptions => (req, res, next) => {
     )
 
     res.redirect(301, redirect)
-  }
-
-  if (useHTTPS && options.hsts && options.hsts.enabled) {
-    res.setHeader(
-      'Strict-Transport-Security',
-      `max-age=${Math.round(options.hsts.maxAge)}${
-        options.hsts.subDomains ? '; includeSubDomains' : ''
-      }${options.hsts.preload ? '; preload' : ''}`,
-    )
   }
 
   return next()
