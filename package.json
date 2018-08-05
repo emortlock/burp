@@ -1,7 +1,7 @@
 {
-  "name": "nextjs-boilerplate",
+  "name": "burp",
   "version": "1.0.0",
-  "description": "Starter kit for a next.js app.",
+  "description": "Boilerplate Universal React PWA",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/emortlock/nextjs-boilerplate.git"
@@ -78,6 +78,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
+    "react-svg-loader": "^2.1.0",
     "recompose": "0.27.1",
     "sw-precache-webpack-plugin": "^0.11.5",
     "tailwindcss": "^0.6.4",

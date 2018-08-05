@@ -2,6 +2,7 @@ const withCSS = require('@zeit/next-css')
 
 const flags = require('./build/webpack/flags')
 const addPolyfills = require('./build/webpack/addPolyfills')
+const loaders = require('./build/webpack/loaders')
 const plugins = require('./build/webpack/plugins')
 
 module.exports = withCSS({
@@ -11,6 +12,7 @@ module.exports = withCSS({
 
     newConfig.entry = addPolyfills(config)
 
+    // Fix to allow winston logging client side
     const node = !meta.isServer
       ? {
           node: { fs: 'empty' },
@@ -22,6 +24,7 @@ module.exports = withCSS({
       config,
       addPolyfills(config, meta),
       plugins(config, meta),
+      loaders(config, meta),
       node,
     )
   },

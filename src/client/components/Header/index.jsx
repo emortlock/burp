@@ -3,24 +3,30 @@ import PropTypes from 'prop-types'
 import { withStateHandlers } from 'recompose'
 import classnames from 'classnames'
 
+import Logo from '../../assets/images/logo.svg'
+
 import Link from '../Link'
 import Container from '../Container'
 
 const Header = ({ open, toggleOpen }) => (
-  <nav className="bg-teal py-6" aria-label="main navigation">
+  <nav className="bg-primary py-6" aria-label="main navigation">
     <Container className="flex items-center justify-between flex-wrap px-4">
       <div className="flex items-center flex-no-shrink mr-6">
         <Link
           href="/"
           className="text-white font-semibold text-xl no-underline"
         >
-          Next Boilerplate
+          <Logo
+            width="128"
+            height="41"
+            className="fill-current"
+          />
         </Link>
       </div>
       <div className="block lg:hidden">
         <button
           onClick={() => toggleOpen()}
-          className="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white"
+          className="flex items-center px-3 py-2 border rounded text-secondary border-secondary hover:text-white hover:border-white"
           aria-label="menu"
           aria-expanded={open}
           type="button"
@@ -44,7 +50,7 @@ const Header = ({ open, toggleOpen }) => (
       >
         <div className="text-sm lg:flex-grow">
           <Link
-            className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4"
+            className="block mt-4 lg:inline-block lg:mt-0 text-secondary hover:text-white mr-4"
             href="/about"
           >
             About

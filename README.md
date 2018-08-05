@@ -1,8 +1,11 @@
-# Next.js Boilerplate
+<h1 align="center">
+  BURP<br />
+  (Boilerplate Universal React PWA)
+</h1>
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/emortlock/nextjs-boilerplate.svg)](https://greenkeeper.io/)
 
-Opinionated starter kit for building a project that makes use of Next.js.
+Opinionated starter kit for building a React PWA that can be run on a Node server using Express and Next.js or as a static site by making use of Next.js export function.
 
 Aims to align as closely as possible to the [Lighthouse](https://developers.google.com/web/tools/lighthouse/) recommendations.
 
@@ -28,7 +31,6 @@ In order to get the best experience of Prettier it's highly recommended that you
 
 ## TODO
 
-- manifest & app icons
 - https://github.com/zeit/next.js/tree/canary/examples/ssr-caching
 - https://github.com/zeit/next.js/blob/canary/examples/with-sitemap-and-robots-express-server/server/sitemapAndRobots.js
 - https://github.com/zeit/next.js/tree/canary/examples/with-webpack-bundle-analyzer
