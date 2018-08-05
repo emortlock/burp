@@ -1,9 +1,9 @@
 {
-  "short_name": "Boilerplate",
-  "name": "Next.js Boilerplate",
+  "short_name": "BURP",
+  "name": "Boilerplate Universal React PWA",
   "start_url": "/?utm_source=homescreen",
   "background_color": "#fff",
-  "theme_color": "#4dc0b5",
+  "theme_color": "#263238",
   "display": "minimal-ui",
   "icons": [
     {
@@ -11,11 +11,11 @@
       "sizes": "64x64"
     },
     {
-      "src": "/static/images/icon-mid.ico",
+      "src": "/static/images/icon-mid.png",
       "sizes": "96x96 192x192"
     },
     {
-      "src": "/static/images/icon-hi.ico",
+      "src": "/static/images/icon-hi.png",
       "sizes": "128x128 256x256 512x512"
     },
     {

@@ -1,7 +1,7 @@
 {
-  "name": "nextjs-boilerplate",
+  "name": "burp",
   "version": "1.0.0",
-  "description": "Starter kit for a next.js app.",
+  "description": "Boilerplate Universal React PWA",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/emortlock/nextjs-boilerplate.git"
@@ -33,7 +33,7 @@
       "./build/jest/setup/enzyme.js"
     ],
     "moduleNameMapper": {
-      "^.+\\.(svg)$": "<rootDir>/build/jest/mocks/svg.js",
+      "^.+\\.(svg)$": "<rootDir>/build/jest/mocks/svg.jsx",
       "^.+\\.(s?css)$": "<rootDir>/build/jest/mocks/file.js",
       "^.+\\.(jpg|jpeg|png|gif|bmp)$": "<rootDir>/build/jest/mocks/file.js",
       "^.+\\.(eot|otf|webp|ttf|woff|woff2)$": "<rootDir>/build/jest/mocks/file.js"
@@ -78,6 +78,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
+    "react-svg-loader": "^2.1.0",
     "recompose": "0.27.1",
     "sw-precache-webpack-plugin": "^0.11.5",
     "tailwindcss": "^0.6.4",
@@ -91,7 +92,7 @@
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "enzyme-to-json": "^3.2.2",
-    "eslint": "^5.3.0",
+    "eslint": "4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-import-resolver-webpack": "^0.10.1",

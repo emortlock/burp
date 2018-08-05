@@ -30,17 +30,13 @@ export default class MyDocument extends Document {
             name="theme-color"
             content={
               // eslint-disable-next-line global-require,import/no-webpack-loader-syntax
-              require('!!json-loader!../../../../static/manifest.webmanifest')
+              require('!!json-loader!../../../../static/site.webmanifest')
                 .theme_color
             }
           />
 
           <link key="favicon" rel="icon" href="/static/favicon.ico" />
-          <link
-            key="manifest"
-            rel="manifest"
-            href="/static/manifest.webmanifest"
-          />
+          <link key="manifest" rel="manifest" href="/static/site.webmanifest" />
 
           <link
             key="stylesheet-main"

@@ -2,13 +2,13 @@
 
 exports[`Footer renders matching snapshot 1`] = `
 <footer
-  className="bg-teal-darker text-white"
+  className="bg-primary-dark text-white"
 >
   <Container
     alignLeft={false}
     className="pt-8 px-4 pb-16"
   >
-    Next Boiler Plate
+    Boilerplate Universal React PWA
   </Container>
 </footer>
 `;

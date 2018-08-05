@@ -43,7 +43,7 @@ View the full documentation at https://tailwindcss.com.
 |
 */
 
-let colors = {
+const baseColors = {
   'transparent': 'transparent',
 
   'black': '#22292f',
@@ -129,6 +129,17 @@ let colors = {
   'pink-lightest': '#ffebef',
 }
 
+const brandColors = {
+  'primary-dark': '#000a12',
+  'primary': '#263238',
+  'primary-light': '#4f5b62',
+  'secondary-dark': '#9ea7aa',
+  'secondary': '#cfd8dc',
+  'secondary-light': baseColors.white,
+}
+
+const colors = Object.assign(baseColors, brandColors)
+
 module.exports = {
 
   /*
@@ -144,7 +155,7 @@ module.exports = {
   |
   */
 
-  colors: colors,
+  colors,
 
 
   /*
