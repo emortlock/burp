@@ -18,6 +18,7 @@ const rootFiles = [
 
 app.prepare().then(() => {
   const server = express()
+  server.enable('trust proxy')
 
   server.use(redirectURLMiddleware())
 
