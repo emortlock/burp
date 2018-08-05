@@ -3,6 +3,9 @@ const express = require('express')
 const next = require('next')
 const mime = require('mime-types')
 
+const compressionMiddleware = require('compression')
+const helmetMiddleware = require('helmet')
+
 const config = require('./config')
 const log = require('./log')
 
@@ -20,7 +23,11 @@ app.prepare().then(() => {
   const server = express()
   server.enable('trust proxy')
 
+  server.use(helmetMiddleware())
   server.use(redirectURLMiddleware())
+  if (!config.isDev) {
+    server.use(compressionMiddleware())
+  }
 
   rootFiles.forEach(({ fileName, dir }) => {
     server.get(`/${fileName}`, (req, res) =>
