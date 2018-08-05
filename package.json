@@ -62,6 +62,7 @@
     "@zeit/next-css": "^0.2.0",
     "autoprefixer": "^9.0.1",
     "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.3",
     "classnames": "^2.2.5",
     "compression": "^1.7.3",
     "cross-env": "^5.0.1",
