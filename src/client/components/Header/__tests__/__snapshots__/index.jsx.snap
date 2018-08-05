@@ -1,9 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header renders matching snapshot 1`] = `
-<Header
-  open={false}
-  text="Some text"
-  toggleOpen={[Function]}
-/>
+<nav
+  aria-label="main navigation"
+  className="bg-primary py-6"
+>
+  <Container
+    alignLeft={false}
+    className="flex items-center justify-between flex-wrap px-4"
+  >
+    <div
+      className="flex items-center flex-no-shrink mr-6"
+    >
+      <Link
+        className="text-white font-semibold text-xl no-underline"
+        href="/"
+      >
+        <SVG
+          className="fill-current"
+          height="41"
+          width="128"
+        />
+      </Link>
+    </div>
+    <div
+      className="block lg:hidden"
+    >
+      <button
+        aria-expanded={false}
+        aria-label="menu"
+        className="flex items-center px-3 py-2 border rounded text-secondary border-secondary hover:text-white hover:border-white"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="fill-current h-3 w-3"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Menu
+          </title>
+          <path
+            d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      className="hidden w-full flex-grow lg:flex lg:items-center lg:w-auto"
+    >
+      <div
+        className="text-sm lg:flex-grow"
+      >
+        <Link
+          className="block mt-4 lg:inline-block lg:mt-0 text-secondary hover:text-white mr-4"
+          href="/about"
+        >
+          About
+        </Link>
+      </div>
+    </div>
+  </Container>
+</nav>
 `;

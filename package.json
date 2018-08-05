@@ -33,7 +33,7 @@
       "./build/jest/setup/enzyme.js"
     ],
     "moduleNameMapper": {
-      "^.+\\.(svg)$": "<rootDir>/build/jest/mocks/svg.js",
+      "^.+\\.(svg)$": "<rootDir>/build/jest/mocks/svg.jsx",
       "^.+\\.(s?css)$": "<rootDir>/build/jest/mocks/file.js",
       "^.+\\.(jpg|jpeg|png|gif|bmp)$": "<rootDir>/build/jest/mocks/file.js",
       "^.+\\.(eot|otf|webp|ttf|woff|woff2)$": "<rootDir>/build/jest/mocks/file.js"

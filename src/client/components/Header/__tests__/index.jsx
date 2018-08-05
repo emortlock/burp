@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Header from '..'
+import { component as Header } from '..'
 
 const setup = (testProps = {}) => {
   const props = {
-    text: 'Some text',
+    toggleOpen: () => {},
     ...testProps,
   }
 

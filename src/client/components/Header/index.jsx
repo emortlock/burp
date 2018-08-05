@@ -16,11 +16,7 @@ const Header = ({ open, toggleOpen }) => (
           href="/"
           className="text-white font-semibold text-xl no-underline"
         >
-          <Logo
-            width="128"
-            height="41"
-            className="fill-current"
-          />
+          <Logo width="128" height="41" className="fill-current" />
         </Link>
       </div>
       <div className="block lg:hidden">
@@ -69,6 +65,8 @@ Header.propTypes = {
 Header.defaultProps = {
   open: false,
 }
+
+export { Header as component }
 
 export default withStateHandlers(
   ({ defaultOpen = false }) => ({
