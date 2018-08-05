@@ -6,6 +6,8 @@ const mime = require('mime-types')
 const config = require('./config')
 const log = require('./log')
 
+const redirectURLMiddleware = require('./middleware/redirectURL')
+
 const app = next({ dev: config.isDev })
 const handle = app.getRequestHandler()
 
@@ -16,6 +18,8 @@ const rootFiles = [
 
 app.prepare().then(() => {
   const server = express()
+
+  server.use(redirectURLMiddleware())
 
   rootFiles.forEach(({ fileName, dir }) => {
     server.get(`/${fileName}`, (req, res) =>
