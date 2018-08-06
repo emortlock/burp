@@ -9,7 +9,7 @@ const rootFiles = [
 module.exports = rootFiles.map(({ fileName, dir }) => ({
   file: fileName,
   options: {
-    root: path.resolve(__dirname, '../../', dir),
+    root: path.resolve(__dirname, '../../../', dir),
     headers: {
       'Content-Type': `${mime.lookup(fileName)}`,
     },
