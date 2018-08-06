@@ -79,6 +79,7 @@
     "postcss-import": "^11.1.0",
     "postcss-nested": "^3.0.0",
     "postcss-scss": "^2.0.0",
+    "prom-client": "^11.1.1",
     "promise": "^8.0.1",
     "prop-types": "^15.6.2",
     "purgecss-webpack-plugin": "^1.2.0",
