@@ -1,8 +1,5 @@
 const bodyParser = require('body-parser')
-const compression = require('compression')
 const helmet = require('helmet')
-
-const config = require('../config')
 
 const health = require('./health')
 const metrics = require('./metrics')
@@ -12,7 +9,6 @@ module.exports = [
   health,
   metrics,
   helmet(),
-  !config.isDev && compression(),
   validatePost,
   bodyParser.json({ limit: '20mb' }),
   bodyParser.urlencoded({ limit: '20mb', extended: false }),
