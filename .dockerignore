@@ -1,0 +1,11 @@
+node_modules
+*.log
+
+.git
+.gitignore
+.DS_Store
+
+npm-debug.log
+
+out
+.next

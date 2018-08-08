@@ -1,0 +1,15 @@
+version: '3'
+services:
+  reverse-proxy:
+    build: ./src/reverse-proxy
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    links:
+      - app:app
+  app:
+    build: ./
+    command: npm start
+    ports:
+      - 8080
