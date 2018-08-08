@@ -1,21 +1,119 @@
 {
   "name": "burp",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "docker-compose build",
-    "start": "docker-compose up",
-    "stop": "docker-compose down"
-  },
+  "description": "Boilerplate Universal React PWA",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emortlock/burp.git"
+    "url": "git+https://github.com/emortlock/nextjs-boilerplate.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/emortlock/burp/issues"
+  "main": "./dist",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production next build",
+    "build:analyze": "cross-env BUNDLE_ANALYZE=both npm run build",
+    "export": "cross-env NODE_ENV=production next export dist",
+    "start": "cross-env NODE_ENV=production node ./src/server",
+    "start:dev": "cross-env NODE_ENV=development nodemon ./src/server",
+    "test": "cross-env LOGGER_ENABLED=false BABEL_ENV=test jest",
+    "lint": "eslint \"src/**/*.{js,jsx}\"",
+    "lint:fix": "npm run lint -- --fix"
   },
-  "homepage": "https://github.com/emortlock/burp#readme"
+  "engines": {
+    "node": "^8.11.3",
+    "npm": ">=5.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "src/**/*.jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "setupFiles": [
+      "./build/jest/setup/enzyme.js"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(svg)$": "<rootDir>/build/jest/mocks/svg.jsx",
+      "^.+\\.(s?css)$": "<rootDir>/build/jest/mocks/file.js",
+      "^.+\\.(jpg|jpeg|png|gif|bmp)$": "<rootDir>/build/jest/mocks/file.js",
+      "^.+\\.(eot|otf|webp|ttf|woff|woff2)$": "<rootDir>/build/jest/mocks/file.js"
+    },
+    "resetModules": true,
+    "testPathIgnorePatterns": [
+      "<rootDir>/.next/",
+      "<rootDir>/node_modules/"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "dependencies": {
+    "@zeit/next-bundle-analyzer": "^0.1.1",
+    "@zeit/next-css": "^0.2.0",
+    "autoprefixer": "^9.0.1",
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.3",
+    "classnames": "^2.2.5",
+    "compression": "^1.7.3",
+    "cross-env": "^5.0.1",
+    "express": "^4.16.3",
+    "glob-all": "^3.1.0",
+    "helmet": "^3.13.0",
+    "joi": "^13.4.0",
+    "json-loader": "^0.5.7",
+    "mime-types": "^2.1.19",
+    "next": "^6.1.1",
+    "object-assign": "^4.1.1",
+    "postcss-clean": "^1.1.0",
+    "postcss-color-function": "^4.0.1",
+    "postcss-import": "^11.1.0",
+    "postcss-nested": "^3.0.0",
+    "postcss-scss": "^2.0.0",
+    "prom-client": "^11.1.1",
+    "promise": "^8.0.1",
+    "prop-types": "^15.6.2",
+    "purgecss-webpack-plugin": "^1.2.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1",
+    "react-svg-loader": "^2.1.0",
+    "recompose": "0.28.2",
+    "sw-precache-webpack-plugin": "^0.11.5",
+    "tailwindcss": "^0.6.4",
+    "whatwg-fetch": "^2.0.4",
+    "winston": "^3.0.0",
+    "winston-transport": "^4.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.4.2",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
+    "enzyme-to-json": "^3.2.2",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-import-resolver-webpack": "^0.10.1",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.10.0",
+    "jest": "^23.4.1",
+    "nodemon": "^1.18.3",
+    "prettier": "^1.13.7"
+  },
+  "author": "Ed Mortlock",
+  "license": "MIT"
 }

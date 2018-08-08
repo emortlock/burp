@@ -1,15 +1,15 @@
 version: '3'
 services:
-  burp-nginx:
-    build: ./packages/burp-nginx
+  reverse-proxy:
+    build: ./src/reverse-proxy
     ports:
       - 80:80
       - 443:443
     restart: always
     links:
-      - burp-app:burp-app
-  burp-app:
-    build: ./packages/burp-app
+      - app:app
+  app:
+    build: ./
     command: npm start
     ports:
       - 8080
