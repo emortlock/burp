@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { TailwindConfigProvider } from 'tailwind-react'
+import { TailwindConfigProvider, Container } from 'tailwind-react'
 
 import Header from '../Header'
 import Footer from '../Footer'
-import Container from '../Container'
 
 import '../../styles/index.css'
 
@@ -24,7 +23,9 @@ const Layout = ({ children }) => (
     <div className="flex flex-col absolute pin overflow-auto">
       <div className="flex-auto	flex-no-shrink">
         <Header />
-        <Container className="p-4">{children}</Container>
+        <Container padding className="pt-4">
+          {children}
+        </Container>
       </div>
       <div className="flex-auto	flex-no-shrink flex-no-grow">
         <Footer />
