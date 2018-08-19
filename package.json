@@ -34,6 +34,7 @@
       "./build/jest/setup/enzyme.js"
     ],
     "moduleNameMapper": {
+      "tailwind-react": "@eddm/tailwind-react",
       "^.+\\.(svg)$": "<rootDir>/build/jest/mocks/svg.jsx",
       "^.+\\.(s?css)$": "<rootDir>/build/jest/mocks/file.js",
       "^.+\\.(jpg|jpeg|png|gif|bmp)$": "<rootDir>/build/jest/mocks/file.js",
