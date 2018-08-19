@@ -4,7 +4,7 @@
   "description": "Boilerplate Universal React PWA",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emortlock/nextjs-boilerplate.git"
+    "url": "git+https://github.com/emortlock/burp.git"
   },
   "main": "./dist",
   "scripts": {
