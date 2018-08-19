@@ -8,8 +8,14 @@
   "settings": {
     "import/parser": "babel-eslint",
     "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx"]
+      "webpack": {
+        "config": {
+          "resolve": {
+            "alias": {
+              "tailwind-react": "@eddm/tailwind-react"
+            }
+          }
+        }
       }
     }
   }

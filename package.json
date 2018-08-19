@@ -58,6 +58,7 @@
     "trailingComma": "all"
   },
   "dependencies": {
+    "@eddm/tailwind-react": "^0.1.0",
     "@zeit/next-bundle-analyzer": "^0.1.1",
     "@zeit/next-css": "^0.2.0",
     "autoprefixer": "^9.0.1",
@@ -84,9 +85,12 @@
     "purgecss-webpack-plugin": "^1.2.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-svg-loader": "^2.1.0",
     "recompose": "0.29.0",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "sw-precache-webpack-plugin": "^0.11.5",
     "tailwindcss": "^0.6.4",
     "whatwg-fetch": "^2.0.4",

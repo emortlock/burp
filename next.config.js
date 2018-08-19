@@ -19,13 +19,21 @@ module.exports = withBundleAnalyzer(
           }
         : {}
 
+      const resolve = {
+        resolve: Object.assign(config.resolve, {
+          alias: {
+            'tailwind-react': '@eddm/tailwind-react',
+          },
+        }),
+      }
+
       return Object.assign(
-        {},
         config,
         polyfills(config, meta),
         plugins(config, meta),
         loaders(config, meta),
         node,
+        resolve,
       )
     },
   }),

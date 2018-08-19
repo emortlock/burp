@@ -1,5 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
+import { Title, Text } from 'tailwind-react'
+
 import Layout from '../../components/Layout'
 
 import setWindowTitle from '../../utils/setWindowTitle'
@@ -18,8 +20,8 @@ const About = () => (
         content={setMetaDescription(pageDescription)}
       />
     </Head>
-    <h1>About</h1>
-    <p>Some information...</p>
+    <Title size={6}>About</Title>
+    <Text p>Some information...</Text>
   </Layout>
 )
 

@@ -1,14 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import { Container as TwContainer } from 'tailwind-react'
 
 const Container = ({ children, className, alignLeft, ...rest }) => (
-  <div
-    {...rest}
-    className={classnames('container', !alignLeft && 'mx-auto', className)}
-  >
+  <TwContainer {...rest} leftAlign={alignLeft} className={className}>
     {children}
-  </div>
+  </TwContainer>
 )
 
 Container.propTypes = {
