@@ -3,7 +3,7 @@
 version: 2
 
 defaults: &defaults
-  working_directory: ~/next-boilerplate
+  working_directory: ~/burp
   docker:
     - image: circleci/node:stretch
 
