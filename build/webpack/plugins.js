@@ -1,4 +1,4 @@
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+const { GenerateSW } = require('workbox-webpack-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 
 const path = require('path')
@@ -29,7 +29,7 @@ module.exports = (config, { dev, isServer }) => {
           },
         ],
       }),
-      new WorkboxWebpackPlugin({
+      new GenerateSW({
         clientsClaim: true,
         skipWaiting: true,
         exclude: [/\.map$/, /\.pdf$/, /\.zip$/],
@@ -42,7 +42,11 @@ module.exports = (config, { dev, isServer }) => {
         ],
         runtimeCaching: [
           {
-            urlPattern: /\.html$/,
+            urlPattern: new RegExp('https?://'),
+            handler: 'staleWhileRevalidate',
+          },
+          {
+            urlPattern: /\.(js|css)$/,
             handler: 'networkFirst',
           },
         ],
