@@ -14,12 +14,6 @@ export default class SiteDocument extends Document {
             httpEquiv="x-ua-compatible"
             content="ie=edge"
           />
-          <title key="title">{setWindowTitle()}</title>
-          <meta
-            key="description"
-            name="description"
-            content={setMetaDescription()}
-          />
           <meta
             key="viewport"
             name="viewport"

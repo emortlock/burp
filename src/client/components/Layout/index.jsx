@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { TailwindConfigProvider, Container } from 'tailwind-react'
+import Head from 'next/head'
+import { TailwindThemeProvider, SiteWrap, Container } from 'tailwind-react-ui'
+
+import setWindowTitle from '../../utils/setWindowTitle'
+import setMetaDescription from '../../utils/setMetaDescription'
 
 import Header from '../Header'
 import Footer from '../Footer'
@@ -8,30 +12,32 @@ import Footer from '../Footer'
 import '../../styles/index.css'
 
 const Layout = ({ children }) => (
-  <TailwindConfigProvider
-    config={{
-      baseColors: {
-        primaryDark: 'primary-dark',
-        primary: 'primary',
-        primaryLight: 'primary-light',
-        secondaryDark: 'secondary-dark',
-        secondary: 'secondary',
-        secondaryLight: 'secondary-light',
-      },
-    }}
-  >
-    <div className="flex flex-col absolute pin overflow-auto">
-      <div className="flex-auto	flex-no-shrink">
+  <Fragment>
+    <Head>
+      <title>{setWindowTitle()}</title>
+      <meta
+        key="description"
+        name="description"
+        content={setMetaDescription()}
+      />
+    </Head>
+    <TailwindThemeProvider
+      theme={{
+        brandColors: {
+          primary: 'primary',
+          secondary: 'secondary',
+        },
+      }}
+    >
+      <SiteWrap>
         <Header />
         <Container padding className="pt-4">
           {children}
         </Container>
-      </div>
-      <div className="flex-auto	flex-no-shrink flex-no-grow">
         <Footer />
-      </div>
-    </div>
-  </TailwindConfigProvider>
+      </SiteWrap>
+    </TailwindThemeProvider>
+  </Fragment>
 )
 
 Layout.propTypes = {

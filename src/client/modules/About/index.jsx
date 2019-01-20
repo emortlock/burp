@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import { Title, Text } from 'tailwind-react'
+import { Title, Text } from 'tailwind-react-ui'
 
 import Layout from '../../components/Layout'
 
@@ -21,7 +21,7 @@ const About = () => (
       />
     </Head>
     <Title size={6}>About</Title>
-    <Text p>Some information...</Text>
+    <Text is="p">Some information...</Text>
   </Layout>
 )
 

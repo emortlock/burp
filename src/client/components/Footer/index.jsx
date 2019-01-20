@@ -1,13 +1,11 @@
 import React from 'react'
 
-import { Container } from 'tailwind-react'
+import { Footer as TwFooter } from 'tailwind-react-ui'
 
 const Footer = () => (
-  <footer className="bg-primary-dark text-white">
-    <Container padding className="pt-8 pb-16">
-      Boilerplate Universal React PWA
-    </Container>
-  </footer>
+  <TwFooter bg="primary-dark" text="white">
+    Boilerplate Universal React PWA
+  </TwFooter>
 )
 
 export default Footer

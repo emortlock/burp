@@ -1,28 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header renders matching snapshot 1`] = `
-<WithConfig(Header)>
-  <WithConfig(NavBrand)
-    is={[Function]}
-  >
-    <SVG
-      className="fill-current -mt-3"
-      height="41"
-      width="128"
-    />
-  </WithConfig(NavBrand)>
-  <WithConfig(NavToggle) />
-  <WithConfig(WithTransition(NavMenu))>
-    <WithConfig(NavItem)
-      is={[Function]}
-    >
-      About
-    </WithConfig(NavItem)>
-    <WithConfig(NavItem)
-      is={[Function]}
-    >
-      Todos
-    </WithConfig(NavItem)>
-  </WithConfig(WithTransition(NavMenu))>
-</WithConfig(Header)>
+<Header
+  router={Object {}}
+  toggleOpen={[Function]}
+/>
 `;

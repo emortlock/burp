@@ -6,10 +6,13 @@ module.exports = {
         'preset-env': {
           modules: false,
           targets: { browsers: ['>2%'] },
+          loose: true,
+          useBuiltIns: 'entry',
         },
       },
     ],
   ],
+  plugins: ['add-react-displayname'],
   env: {
     test: {
       presets: [

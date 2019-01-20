@@ -4,8 +4,10 @@ import NextLink from 'next/link'
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Link = ({ children, className, href, ...rest }) => (
-  <NextLink href={href} {...rest}>
-    <a className={className}>{children}</a>
+  <NextLink href={href}>
+    <a className={className} {...rest}>
+      {children}
+    </a>
   </NextLink>
 )
 

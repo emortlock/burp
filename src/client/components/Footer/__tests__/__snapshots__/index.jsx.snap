@@ -1,14 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer renders matching snapshot 1`] = `
-<footer
-  className="bg-primary-dark text-white"
+<WithTheme(Footer)
+  bg="primary-dark"
+  text="white"
 >
-  <Container
-    alignLeft={false}
-    className="pt-8 px-4 pb-16"
-  >
-    Boilerplate Universal React PWA
-  </Container>
-</footer>
+  Boilerplate Universal React PWA
+</WithTheme(Footer)>
 `;

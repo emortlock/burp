@@ -1,4 +1,4 @@
-const SWPrecachePlugin = require('sw-precache-webpack-plugin')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 
 const path = require('path')
@@ -29,13 +29,21 @@ module.exports = (config, { dev, isServer }) => {
           },
         ],
       }),
-      new SWPrecachePlugin({
-        filename: 'service-worker.js',
-        staticFileGlobsIgnorePatterns: [/\.next\//],
+      new WorkboxWebpackPlugin({
+        clientsClaim: true,
+        skipWaiting: true,
+        exclude: [/\.map$/, /\.pdf$/, /\.zip$/],
+        importWorkboxFrom: 'cdn',
+        navigateFallback: '/index.html',
+        navigateFallbackBlacklist: [
+          new RegExp('^/_'), // Exclude URLs starting with /_
+          new RegExp('^/api'), // Exclude URLs starting with /api
+          new RegExp('/[^/]+\\.[^/]+$'), // Exclude URLs containing a dot
+        ],
         runtimeCaching: [
           {
+            urlPattern: /\.html$/,
             handler: 'networkFirst',
-            urlPattern: /^https?.*/,
           },
         ],
       }),

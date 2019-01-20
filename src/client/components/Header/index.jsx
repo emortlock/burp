@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { withRouter } from 'next/router'
 
 import {
   Header as TwHeader,
@@ -6,23 +8,46 @@ import {
   NavToggle,
   NavMenu,
   NavItem,
-} from 'tailwind-react'
+} from 'tailwind-react-ui'
 
 import Logo from '../../assets/images/logo.svg'
 
 import Link from '../Link'
 
-const Header = () => (
-  <TwHeader>
-    <NavBrand is={props => <Link {...props} href="/" />}>
+const routes = [
+  { name: 'About', href: '/about' },
+  { name: 'Todos', href: '/todos' },
+]
+
+const Header = ({ router }) => (
+  <TwHeader id="header">
+    <NavBrand is={Link} href="/">
       <Logo width="128" height="41" className="fill-current -mt-3" />
     </NavBrand>
     <NavToggle />
     <NavMenu>
-      <NavItem is={props => <Link {...props} href="/about" />}>About</NavItem>
-      <NavItem is={props => <Link {...props} href="/todos" />}>Todos</NavItem>
+      {routes.map(route => (
+        <NavItem
+          key={route.href}
+          is={Link}
+          href={route.href}
+          active={router.pathname === route.href}
+        >
+          {route.name}
+        </NavItem>
+      ))}
     </NavMenu>
   </TwHeader>
 )
 
-export default Header
+Header.propTypes = {
+  router: PropTypes.shape({
+    pathname: PropTypes.string,
+  }),
+}
+
+Header.defaultProps = {
+  router: {},
+}
+
+export default withRouter(Header)

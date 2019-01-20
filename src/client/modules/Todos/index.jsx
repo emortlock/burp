@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Title } from 'tailwind-react'
+import { Title } from 'tailwind-react-ui'
 
-import { getTodos } from '../../redux/modules/todos'
+import { getTodos, createTodo } from '../../redux/modules/todos'
 import Layout from '../../components/Layout'
 
 import CreateTodo from './CreateTodo'
 
-const TodoList = ({ todos = [] }) => (
+const TodoList = ({ todos, onSubmit }) => (
   <Layout>
     <Title size={6}>To Do</Title>
-    <CreateTodo />
+    <CreateTodo onSubmit={onSubmit} />
     {todos.map(todo => (
       <div key={todo.id}>{todo.text}</div>
     ))}
@@ -26,12 +26,19 @@ TodoList.propTypes = {
       completed: PropTypes.bool,
     }),
   ),
+  onSubmit: PropTypes.func,
 }
 
 TodoList.defaultProps = {
   todos: [],
+  onSubmit: undefined,
 }
 
-export default connect(state => ({
-  todos: getTodos(state),
-}))(TodoList)
+export default connect(
+  state => ({
+    todos: getTodos(state),
+  }),
+  {
+    onSubmit: createTodo,
+  },
+)(TodoList)
