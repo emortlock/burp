@@ -1,9 +1,6 @@
 import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 
-import setWindowTitle from '../../utils/setWindowTitle'
-import setMetaDescription from '../../utils/setMetaDescription'
-
 export default class SiteDocument extends Document {
   render() {
     return (
