@@ -71,7 +71,7 @@
     "joi": "^13.4.0",
     "json-loader": "^0.5.7",
     "mime-types": "^2.1.19",
-    "next": "^6.1.1",
+    "next": "^8.0.0",
     "object-assign": "^4.1.1",
     "postcss-clean": "^1.1.0",
     "postcss-color-function": "^4.0.1",
